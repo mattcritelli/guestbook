@@ -5,8 +5,11 @@
 <%= form_tag action: 'sign_in' do %>
   <p>Enter your name:
   <%= text_field_tag 'visitor_name', @name %></p>
-
   <%= submit_tag 'Sign in' %>
+  <% unless @previous_name.blank? %>
+  <p>Last time you said you were:</p>
+  <%= @previous_name %>
+  <% end %>
 
   <p>Previous visitors:</p>
   <% @entry.each do |entry| %>
